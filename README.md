@@ -14,7 +14,7 @@ The node turns that target into a map-frame pose and sends it to Nav2.
 Nav2's 0.25 m tolerance. The last command ("make me a sandwich") was correctly rejected.*
 
 
-> Part of my Physical AI project set: [rl_nav](https://github.com/Deivaprakash56/rl_nav) (RL navigation benchmarked against Nav2) · [il_arm](https://github.com/Deivaprakash56/il_arm) (Imitation learning for pick-and-place).
+> Part of my Physical AI project set: [rl_nav](https://github.com/Deivaprakash56/rl-navigation-vs-nav2) (RL navigation benchmarked against Nav2) · [il_arm](https://github.com/Deivaprakash56/il_arm) (Imitation learning for pick-and-place).
 > Everything here runs in simulation. The ROS 2 interfaces are the same ones a real robot uses.
 
 ## Quick start
