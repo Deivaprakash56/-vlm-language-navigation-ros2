@@ -1,0 +1,14 @@
+digraph K {
+  rankdir=TB; pad=0.3; nodesep=0.3; ranksep=0.45;
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10.5, color="#555555", fillcolor="#f4f4f4"];
+  edge [fontname="Helvetica", fontsize=9, color="#555555"];
+  r [label="Grounding result\n{kind, landmark, pixel_u/v, forward_m, left_m, turn_deg, reason}", fillcolor="#fde2e2"];
+  a [label="landmark\nlook up (x, y, yaw)\nin landmarks.yaml", fillcolor="#fff6d5"];
+  b [label="image_point\nmedian depth (9×9 px) at (u,v)\n→ 3D point in camera frame\n→ TF to map\n→ pull back 0.45 m toward robot", fillcolor="#e3f0ff"];
+  c [label="relative\nrobot pose from TF\n+ forward/left offset\n+ turn", fillcolor="#d9f2d9"];
+  d [label="none\nreject: report reason,\nno goal sent", fillcolor="#eeeeee"];
+  v [label="validate()\nknown landmark? pixel in image?\n|move| ≤ 5 m?", shape=diamond, fillcolor="#ffffff"];
+  g [label="Nav2 goal (map frame)", fillcolor="#e8e0f8"];
+  r -> v; v -> a; v -> b; v -> c; v -> d [label="fails"];
+  a -> g; b -> g; c -> g;
+}

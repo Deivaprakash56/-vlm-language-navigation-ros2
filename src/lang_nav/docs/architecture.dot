@@ -1,0 +1,25 @@
+digraph G {
+  rankdir=LR; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.55;
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, color="#555555", fillcolor="#f4f4f4"];
+  edge [fontname="Helvetica", fontsize=9, color="#555555"];
+
+  user   [label="User\n\"go to the pillar\nin front of you\"", shape=note, fillcolor="#fff6d5"];
+  cam    [label="Depth camera\nRGB + depth + camera_info", fillcolor="#e3f0ff"];
+  node_  [label="lang_nav_node", fillcolor="#d9f2d9", penwidth=2];
+  ground [label="Grounder\n(Claude VLM or keyword)", fillcolor="#fde2e2"];
+  lm     [label="landmarks.yaml\n(labeled map)", shape=cylinder, fillcolor="#fff6d5"];
+  tf     [label="TF\nmap ← odom ← base ← camera", fillcolor="#e3f0ff"];
+  nav2   [label="Nav2\nNavigateToPose", fillcolor="#e8e0f8", penwidth=2];
+  robot  [label="TurtleBot3\n(Gazebo / real)", fillcolor="#e3f0ff"];
+  rviz   [label="RViz marker +\n/lang_nav/status", shape=note];
+
+  user -> node_ [label="/lang_nav/command"];
+  cam -> node_ [label="latest frames"];
+  node_ -> ground [label="text + image"];
+  lm -> ground [label="landmark list"];
+  ground -> node_ [label="JSON: kind + target"];
+  tf -> node_ [label="poses"];
+  node_ -> nav2 [label="PoseStamped (map)"];
+  nav2 -> robot [label="/cmd_vel"];
+  node_ -> rviz [style=dashed];
+}

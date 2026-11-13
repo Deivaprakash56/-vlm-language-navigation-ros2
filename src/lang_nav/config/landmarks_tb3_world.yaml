@@ -1,0 +1,55 @@
+# Labeled landmarks for the Nav2 turtlebot3_world map (map frame, metres / radians).
+# Coordinates were picked from free cells of nav2_bringup/maps/turtlebot3_world.pgm.
+# The arena is a hexagon with a 3x3 grid of pillars at x,y in {-1.1, 0, 1.1}.
+frame_id: map
+landmarks:
+  - name: home
+    description: Robot start / docking spot on the west side of the arena
+    x: -2.0
+    y: -0.5
+    yaw: 0.0
+  - name: west_wall
+    description: Open area next to the west (left) wall
+    x: -2.3
+    y: 0.4
+    yaw: 3.14
+  - name: east_wall
+    description: Open area next to the east (right) wall
+    x: 2.0
+    y: 0.5
+    yaw: 0.0
+  - name: north_end
+    description: Far north end of the arena, past the top row of pillars
+    x: 0.0
+    y: 2.0
+    yaw: 1.57
+  - name: south_end
+    description: Far south end of the arena, past the bottom row of pillars
+    x: 0.0
+    y: -2.0
+    yaw: -1.57
+  - name: northeast_corner
+    description: North-east corner region
+    x: 1.6
+    y: 1.5
+    yaw: 0.78
+  - name: northwest_corner
+    description: North-west corner region
+    x: -1.6
+    y: 1.5
+    yaw: 2.35
+  - name: southeast_corner
+    description: South-east corner region
+    x: 1.6
+    y: -1.5
+    yaw: -0.78
+  - name: southwest_corner
+    description: South-west corner region
+    x: -1.6
+    y: -1.5
+    yaw: -2.35
+  - name: center_gap
+    description: Gap between the centre pillar and the north-east pillar, middle of the arena
+    x: 0.55
+    y: 0.55
+    yaw: 0.0
